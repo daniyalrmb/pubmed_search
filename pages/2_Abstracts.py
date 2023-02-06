@@ -31,20 +31,20 @@ def getData(search):
     data = response.text
     soup = BeautifulSoup(data, "lxml")
     l = []
+    
     try:
       abstract_raw = soup.find('div', {'class': 'abstract-content selected'}).find_all('p')
       for item in abstract_raw:
         l.append(item.text)
     except:
       l.append("missing")
-  
     all_data.append(l)
     
-    #dff = pd.DataFrame(all_data)
-    #dff = dff.iloc[dff.isnull().sum(axis=1).mul(1).argsort()]
-    #dff.columns =['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o']
+  dff = pd.DataFrame(all_data)
+  dff = dff.iloc[dff.isnull().sum(axis=1).mul(1).argsort()]
+  dff.columns =['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o']
     #dff.fillna("-", inplace = True)
-    return lp
+  return dff
   
 @st.cache
 def convert_df(dff):
@@ -61,14 +61,14 @@ if not search.startswith("http"):
 
 time.sleep(1)
 p = getData(search)
-#csv = convert_df(p)
-#st.download_button(
-#   "Press to Download",
-#   csv,
-#   "file.csv",
-#   "text/csv",
-#    key='download-csv'
-#)
+csv = convert_df(p)
+st.download_button(
+   "Press to Download",
+   csv,
+   "file.csv",
+   "text/csv",
+    key='download-csv'
+)
 time.sleep(1)
 
 
