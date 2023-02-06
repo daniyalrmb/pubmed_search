@@ -43,7 +43,7 @@ def getData(search):
     dff = dff.iloc[dff.isnull().sum(axis=1).mul(1).argsort()]
     #dff.columns =['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o']
     #dff.fillna("-", inplace = True)
-    return dff
+    return all_data
   
 @st.cache
 def convert_df(dff):
@@ -59,16 +59,16 @@ if not search.startswith("http"):
   st.stop()
 
 time.sleep(1)
-p = getData(search)
-csv = convert_df(p)
-st.download_button(
-   "Press to Download",
-   csv,
-   "file.csv",
-   "text/csv",
-   key='download-csv'
-)
-time.sleep(1)
-
-AgGrid(p)
+#p = getData(search)
+#csv = convert_df(p)
+#st.download_button(
+#   "Press to Download",
+#   csv,
+#   "file.csv",
+#   "text/csv",
+#   key='download-csv'
+#)
+#time.sleep(1)
+st.write(all_data)
+#AgGrid(p)
 #AgGrid(p, height=500, fit_columns_on_grid_load=True, enable_enterprise_modules=True)
