@@ -59,7 +59,7 @@ if not search.startswith("http"):
   st.stop()
 
 time.sleep(1)
-#p = getData(search)
+p = getData(search)
 #csv = convert_df(p)
 #st.download_button(
 #   "Press to Download",
@@ -69,6 +69,6 @@ time.sleep(1)
 #   key='download-csv'
 #)
 #time.sleep(1)
-st.dataframe(dff)
+st.dataframe(p)
 #AgGrid(p)
 #AgGrid(p, height=500, fit_columns_on_grid_load=True, enable_enterprise_modules=True)
