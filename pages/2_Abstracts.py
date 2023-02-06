@@ -39,7 +39,7 @@ def getData(search):
       l.append("missing")
     all_data.append(l)
     
-    dff = pd.DataFrame(all_data)
+    dff = pd.DataFrame(all_data).fillna(" ", inplace=True)
     #dff = dff.iloc[dff.isnull().sum(axis=1).mul(1).argsort()]
     #dff.columns =['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o']
     #dff.fillna("-", inplace = True)
