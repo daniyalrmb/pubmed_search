@@ -37,6 +37,7 @@ def getData(search):
         l.append(item.text)
     except:
       l.append("missing")
+  
     all_data.append(l)
     
     #dff = pd.DataFrame(all_data)
