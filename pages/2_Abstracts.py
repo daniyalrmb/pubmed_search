@@ -23,6 +23,7 @@ def getData(search):
     i = i+1
   pubids = [item for sublist in pubids for item in sublist]
   pubids = [int(x) for x in pubids]
+  lp = len(pubids)
   all_data = []
   for id in pubids:
     url = "https://pubmed.ncbi.nlm.nih.gov/"+ str(id)
@@ -42,7 +43,7 @@ def getData(search):
     dff = dff.iloc[dff.isnull().sum(axis=1).mul(1).argsort()]
     #dff.columns =['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o']
     #dff.fillna("-", inplace = True)
-    return len(pubids)
+    return dff, lp
   
 @st.cache
 def convert_df(dff):
@@ -68,6 +69,6 @@ st.download_button(
    key='download-csv'
 )
 time.sleep(1)
-st.write(len(pubids))
+st.write(lp)
 
 #AgGrid(p, height=500, fit_columns_on_grid_load=True, enable_enterprise_modules=True)
