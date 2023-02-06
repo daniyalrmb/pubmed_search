@@ -46,8 +46,8 @@ def getData(search):
     return all_data
   
 @st.cache
-#def convert_df(dff):
-#   return dff.to_csv().encode('utf-8')
+def convert_df(dff):
+   return dff.to_csv().encode('utf-8')
 
 st.title("# Abstracts for Dementia Studies! 🔎")
 
