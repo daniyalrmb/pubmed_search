@@ -39,15 +39,15 @@ def getData(search):
       l.append("missing")
     all_data.append(l)
     
-    dff = pd.DataFrame(all_data)
+    #dff = pd.DataFrame(all_data)
     #dff = dff.iloc[dff.isnull().sum(axis=1).mul(1).argsort()]
     #dff.columns =['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o']
     #dff.fillna("-", inplace = True)
-    return dff
+    return all_data
   
 @st.cache
-def convert_df(dff):
-   return dff.to_csv().encode('utf-8')
+#def convert_df(dff):
+#   return dff.to_csv().encode('utf-8')
 
 st.title("# Abstracts for Dementia Studies! 🔎")
 
@@ -60,15 +60,16 @@ if not search.startswith("http"):
 
 time.sleep(1)
 p = getData(search)
-csv = convert_df(p)
-st.download_button(
-   "Press to Download",
-   csv,
-   "file.csv",
-   "text/csv",
-    key='download-csv'
-)
+#csv = convert_df(p)
+#st.download_button(
+#   "Press to Download",
+#   csv,
+#   "file.csv",
+#   "text/csv",
+#    key='download-csv'
+#)
 time.sleep(1)
-st.dataframe(p)
+for i in p:
+  st.markdown("- " + I)
 #AgGrid(p)
 #AgGrid(p, height=500, fit_columns_on_grid_load=True, enable_enterprise_modules=True)
