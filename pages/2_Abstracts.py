@@ -72,7 +72,7 @@ st.download_button(
 time.sleep(1)
 
 
-st.markdown(p)
+
 
 #AgGrid(p)
-#AgGrid(p, height=500, fit_columns_on_grid_load=True, enable_enterprise_modules=True)
+AgGrid(p, height=500, fit_columns_on_grid_load=True, enable_enterprise_modules=True)
