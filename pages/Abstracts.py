@@ -34,3 +34,31 @@ def getData(search):
     dff.columns =['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o']
     
     return dff
+  
+@st.cache
+def convert_df(dff):
+   return dff.to_csv().encode('utf-8')
+
+st.title("# Abstracts for Dementia Studies! 🔎")
+
+st.sidebar.success("Select an option above.")
+
+search = st.text_input('Enter search URL')
+
+if not search.startswith("http"):
+  st.stop()
+
+time.sleep(1)
+p = getData(search)
+csv = convert_df(p)
+st.download_button(
+   "Press to Download",
+   csv,
+   "file.csv",
+   "text/csv",
+   key='download-csv'
+)
+time.sleep(1)
+
+
+AgGrid(p, height=500, fit_columns_on_grid_load=True, enable_enterprise_modules=True)
