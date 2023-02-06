@@ -1,5 +1,14 @@
-# In most cases the abstract is divided into multiple paragraphs. This script separately extracts paragraphs for all 100 pubmed articles
+# enter the search url for pubmed search (displaying 100 results)
+import streamlit as st
+from st_aggrid import AgGrid
+import pandas as pd
+import requests
+from lxml import html
+import time
+from time import sleep
+from bs4 import BeautifulSoup
 
+# In most cases the abstract is divided into multiple paragraphs. This script separately extracts paragraphs for all 100 pubmed articles
 
 def getData(search):
   url = "{}".format(search)
