@@ -69,7 +69,13 @@ p = getData(search)
 #    key='download-csv'
 #)
 time.sleep(1)
+
+s = ''
+
 for i in p:
-  st.markdown("- " + I)
+    s += "- " + i + "\n"
+
+st.markdown(s)
+
 #AgGrid(p)
 #AgGrid(p, height=500, fit_columns_on_grid_load=True, enable_enterprise_modules=True)
