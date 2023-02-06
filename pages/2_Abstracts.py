@@ -68,6 +68,6 @@ st.download_button(
    key='download-csv'
 )
 time.sleep(1)
-
+st.write(p)
 
 #AgGrid(p, height=500, fit_columns_on_grid_load=True, enable_enterprise_modules=True)
