@@ -41,7 +41,7 @@ def getData(search):
     dff = pd.DataFrame(all_data)
     dff = dff.iloc[dff.isnull().sum(axis=1).mul(1).argsort()]
     dff.columns =['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o']
-    
+    dff.fillna("-", inplace = True)
     return dff
   
 @st.cache
