@@ -70,12 +70,8 @@ p = getData(search)
 #)
 time.sleep(1)
 
-s = ''
 
-for i in p:
-    s += "- " + i + "\n"
-
-st.markdown(s)
+st.markdown(p)
 
 #AgGrid(p)
 #AgGrid(p, height=500, fit_columns_on_grid_load=True, enable_enterprise_modules=True)
