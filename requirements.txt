@@ -1,0 +1,7 @@
+pandas
+requests
+urllib3==1.26.9
+streamlit-aggrid
+seaborn
+bs4==0.0.1
+lxml
