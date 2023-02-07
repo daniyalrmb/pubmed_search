@@ -5,3 +5,4 @@ streamlit-aggrid
 seaborn
 bs4==0.0.1
 lxml
+nltk==3.5
