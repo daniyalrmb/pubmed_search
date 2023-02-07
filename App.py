@@ -18,7 +18,9 @@ st.markdown(
     - Enter a Search URL from PubMed and this app will create a dataframe containing title, keywords, abstract, etc
     - The table can be downloaded as a csv
     - Abstracts of articles are separated by paragraph in another table 
-    - A dictionary of most common keywords in Dementia literature is used to identify matched keywords in abstract
+    - Counts of most frequent words in the abstract (excluding stopwords) are displayed in the Keywords tab.
+    
+    - A dictionary of most common keywords in Dementia literature can be created to identify important keywords.
     ### What is the aim of this app?
     - The aim of this app is to reduce the time taken to complete screening of titles/abstracts for systematic reviews
     - Your feedback helps improve the app and automate the screening of titles/abstracts
