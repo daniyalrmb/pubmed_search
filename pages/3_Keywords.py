@@ -10,6 +10,7 @@ from bs4 import BeautifulSoup
 from collections import Counter
 import nltk
 from nltk.corpus import stopwords
+nltk.download('stopwords')
 
 def getData(search):
   url = "{}".format(search)
