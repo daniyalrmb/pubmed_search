@@ -111,11 +111,11 @@ def getData(search):
   ndf = df.apply(test, axis=1)
   countsdf = ndf[['Title', 'counts']]
 
-  return countsndf
+  return countsdf
   
 @st.cache
-def convert_countsndf(countsndf):
-   return countsndf.to_csv().encode('utf-8')
+def convert_countsdf(countsdf):
+   return countsdf.to_csv().encode('utf-8')
 
 st.title("# Search PubMed for Dementia Studies! 🔎")
 
@@ -128,7 +128,7 @@ if not search.startswith("http"):
 
 time.sleep(1)
 p = getData(search)
-csv = convert_countsndf(p)
+csv = convert_countsdf(p)
 st.download_button(
    "Press to Download",
    csv,
