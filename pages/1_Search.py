@@ -7,7 +7,7 @@ from lxml import html
 import time
 from time import sleep
 from bs4 import BeautifulSoup
-
+nltk.download('stopwords')
 def getData(search):
   url = "{}".format(search)
   tree = html.fromstring(requests.get(url).content)
