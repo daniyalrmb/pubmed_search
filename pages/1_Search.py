@@ -7,7 +7,11 @@ from lxml import html
 import time
 from time import sleep
 from bs4 import BeautifulSoup
+import nltk
+from nltk.corpus import stopwords
+import matplotlib.pyplot as mp
 nltk.download('stopwords')
+
 def getData(search):
   url = "{}".format(search)
   tree = html.fromstring(requests.get(url).content)
@@ -104,9 +108,9 @@ def getData(search):
   out = out.sort_values('Count', ascending=False)
 
   # plot the dataframe
-  mp = out.iloc[1:10].plot(x="Words", y=["Count"], kind="bar", figsize=(9, 8))
+  fig, ax = out.iloc[1:10].plot(x="Words", y=["Count"], kind="bar", figsize=(9, 8))
  
-  return df, mp
+  return df, fig
   
 @st.cache
 def convert_df(df):
