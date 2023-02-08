@@ -108,8 +108,8 @@ def getData(search):
   out = out.sort_values('Count', ascending=False)
 
   # plot the dataframe
-  fig, ax = out.iloc[1:10].plot(x="Words", y=["Count"], kind="bar", figsize=(9, 8))
- 
+  out.iloc[1:10].plot(x="Words", y=["Count"], kind="bar", figsize=(9, 8))
+  fig = mp.show()
   return df, fig
   
 @st.cache
