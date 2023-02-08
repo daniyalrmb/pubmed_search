@@ -137,6 +137,6 @@ st.download_button(
 )
 time.sleep(1)
 
-st.pyplot(g)
+#st.pyplot(g)
 
 AgGrid(p, height=500, fit_columns_on_grid_load=True, enable_enterprise_modules=True)
