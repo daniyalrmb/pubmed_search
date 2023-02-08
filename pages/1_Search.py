@@ -94,7 +94,19 @@ def getData(search):
   
   df = pd.DataFrame(list(zip(title, date, journal, keywords, authors, affiliation ,abstract )),
                columns =['Title', 'Date', 'Journal', 'Keywords', 'Authors', 'Affiliation', 'Abstract'])
-  return df
+
+  stop_words = set(stopwords.words('english'))
+  out = df['Keywords'].str.split().explode().to_frame('Words')
+  out['Words'] = out['Words'].apply(lambda x: ' '.join([word for word in x.split() if word.lower() not in (stop_words)]))
+  out = out[out["Words"].str.contains("NO_KEYWORDS") == False]
+  out = out[out["Words"].str.contains("  ") == False]
+  out = out.groupby('Words').size().reset_index(name='Count')
+  out = out.sort_values('Count', ascending=False)
+
+  # plot the dataframe
+  mp = out.iloc[1:10].plot(x="Words", y=["Count"], kind="bar", figsize=(9, 8))
+ 
+  return df, mp
   
 @st.cache
 def convert_df(df):
@@ -110,7 +122,7 @@ if not search.startswith("http"):
   st.stop()
 
 time.sleep(1)
-p = getData(search)
+p,g = getData(search)
 csv = convert_df(p)
 st.download_button(
    "Press to Download",
@@ -121,5 +133,6 @@ st.download_button(
 )
 time.sleep(1)
 
+st.pyplot(g)
 
 AgGrid(p, height=500, fit_columns_on_grid_load=True, enable_enterprise_modules=True)
