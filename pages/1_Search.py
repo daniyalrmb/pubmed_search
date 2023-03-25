@@ -110,7 +110,7 @@ def getData(search):
   # plot the dataframe
   out.iloc[1:10].plot(x="Words", y=["Count"], kind="bar", figsize=(9, 8))
   fig = mp.show()
-  return df, fig
+  return df
   
 @st.cache
 def convert_df(df):
