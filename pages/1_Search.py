@@ -112,7 +112,7 @@ def getData(search):
   #fig = mp.show()
   return df
   
-@st.cache
+@st.cache_resource
 def convert_df(df):
    return df.to_csv().encode('utf-8')
 
