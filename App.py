@@ -10,7 +10,7 @@ st.sidebar.success("Select an option above.")
 
 st.markdown(
     """
-    This App is built with Streamlit, an open-source app framework
+    This App is built with Streamlit, an open-source application framework
     for Machine Learning and Data Science projects.
     **👈 Select an option from the sidebar** to see some examples
     of what Streamlit can do!
